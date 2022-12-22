@@ -1,0 +1,26 @@
+{
+  "name": "api-autenticacao",
+  "version": "1.0.0",
+  "description": "API responsável pela autenticação de usuários",
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./bin/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/immaculataregina/api-autenticacao.git"
+  },
+  "author": "Thiago Lamberti",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/immaculataregina/api-autenticacao/issues"
+  },
+  "homepage": "https://github.com/immaculataregina/api-autenticacao#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "helmet": "^6.0.1"
+  }
+}
