@@ -8,6 +8,6 @@ const controller = require('../controllers/usuario.controller');
 router.post('/', controller.cadastrarUsuario)
 
 // Autenticar
-router.post('/', controller.autenticar)
+router.post('/autenticar', controller.autenticar)
 
 module.exports = router;

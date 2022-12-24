@@ -1,7 +1,7 @@
 'use strict';
 
-const db = require('../utils/db');
-const store = require('store');
+// const db = require('../utils/db');
+// const store = require('store');
 
 
 exports.cadastrar = async (objInsert) => {
