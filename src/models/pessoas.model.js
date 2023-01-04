@@ -1,17 +1,29 @@
 'use strict';
 
-// const db = require('../utils/db');
-// const store = require('store');
+const db = require('../utils/db');
 
 
-exports.cadastrar = async (objInsert) => {
+exports.cadastrar = async (objInsert, schema) => {
 	try {
 
 		const query =
-			`-- Aqui vai o script de inserção`;
+			`
+			INSERT INTO ${schema}.pessoas
+			(nome_completo, apelido, id_perfil_pessoa, dt_nascimento, cpf, id_endereco, email)
+			VALUES
+			('${objInsert.nomeCompleto}', 
+				'${objInsert.apelido}', 
+				${objInsert.idPerfilPessoa}, 
+				'${objInsert.dtNascimento}', 
+				'${objInsert.cpf}', 
+				${objInsert.idEndereco}, 
+				'${objInsert.email}'
+			)
+			`;
 
-		// let output = await db.find(query);
+		console.log(query)
 
+		const output = await db.executar(query);
 		return output[0];
 	} catch (e) {
 		throw new Error(e);
