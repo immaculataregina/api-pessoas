@@ -14,3 +14,16 @@ exports.executar = async (sql) => {
         throw new Error(e);
     }
 }
+
+exports.buscar = async (sql) => {
+    try {
+        const conn = new pg.Client(config.dbConnectionString);
+        conn.connect();
+        const result = await conn.query(sql)
+
+        await conn.end();
+        return result.rows
+    } catch (e) {
+        throw new Error(e);
+    }
+}
