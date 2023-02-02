@@ -89,3 +89,20 @@ exports.buscarPessoaPorCpf = async (cpf, schema) => {
 		throw new Error(e);
 	}
 }
+
+exports.atualizarFoto = async (schema, fotoBase64, idPessoa) => {
+	try {
+
+		const query =
+			`
+			UPDATE ${schema}.pessoas
+			SET foto = '${fotoBase64}'
+			WHERE id_pessoa = ${idPessoa}
+			`;
+		
+		await db.executar(query);
+		
+	} catch (e) {
+		throw new Error(e);
+	}
+}

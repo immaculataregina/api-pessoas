@@ -165,6 +165,30 @@ exports.verificarCpf = async (req, res) => {
 
 }
 
+exports.atualizarFoto = async (req, res) => {
+
+    const schema = req.headers.schema;
+
+    let fotoBase64 = req.body.fotoBase64;
+    let idPessoa = req.params.idPessoa;
+
+    try {
+
+        await PessoasModel.atualizarFoto(
+            schema,
+            fotoBase64,
+            idPessoa
+        )
+
+    } catch (error) {
+
+        return res.status(500).json({ message: error })
+
+    }
+    
+    return res.status(200).json({ message: `Foto atualizada com sucesso!` })
+}
+
 async function isValidCPF(cpf) {
     var numeros, digitos, soma, i, resultado, digitos_iguais;
     digitos_iguais = 1;

@@ -9,4 +9,6 @@ router.post('/', controller.cadastrarPessoa)
 
 router.post('/verifica-cpf', controller.verificarCpf)
 
+router.post('/atualizar-foto/:idPessoa', controller.atualizarFoto)
+
 module.exports = router;
