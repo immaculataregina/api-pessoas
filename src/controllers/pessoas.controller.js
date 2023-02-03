@@ -189,6 +189,30 @@ exports.atualizarFoto = async (req, res) => {
     return res.status(200).json({ message: `Foto atualizada com sucesso!` })
 }
 
+exports.buscarDadosModulos = async (req, res) => {
+
+    const schema = req.headers.schema;
+    let idPessoa = req.params.idPessoa;
+
+    try {
+
+        let dados = await PessoasModel.buscarDadosModulos(
+            schema,
+            idPessoa
+        )
+
+        dados = dados[0]
+
+        return res.status(200).json({ dados })
+
+    } catch (error) {
+
+        return res.status(500).json({ message: error })
+
+    }
+    
+}
+
 async function isValidCPF(cpf) {
     var numeros, digitos, soma, i, resultado, digitos_iguais;
     digitos_iguais = 1;

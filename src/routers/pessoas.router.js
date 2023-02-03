@@ -11,4 +11,6 @@ router.post('/verifica-cpf', controller.verificarCpf)
 
 router.post('/atualizar-foto/:idPessoa', controller.atualizarFoto)
 
+router.get('/dados-modulos/:idPessoa', controller.buscarDadosModulos)
+
 module.exports = router;
