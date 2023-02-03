@@ -213,6 +213,28 @@ exports.buscarDadosModulos = async (req, res) => {
     
 }
 
+exports.buscarPessoasListagem = async (req, res) => {
+
+    const schema = req.headers.schema;
+    const pagina = req.headers.pagina;
+
+    try {
+
+        let dados = await PessoasModel.buscarPessoasListagem(
+            schema,
+            pagina
+        )
+
+        return res.status(200).json({ dados })
+
+    } catch (error) {
+
+        return res.status(500).json({ message: error })
+
+    }
+    
+}
+
 async function isValidCPF(cpf) {
     var numeros, digitos, soma, i, resultado, digitos_iguais;
     digitos_iguais = 1;

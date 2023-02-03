@@ -131,3 +131,28 @@ exports.buscarDadosModulos = async (schema, idPessoa) => {
 		throw new Error(e);
 	}
 }
+
+exports.buscarPessoasListagem = async (schema, pagina) => {
+	try {
+
+		const query =
+			`
+			SELECT p.foto,
+			p.id_pessoa,
+			p.nome_completo,
+			pt.descricao AS pastoral,
+			p.celular
+			FROM ${schema}.pessoas p
+			LEFT JOIN pastorais pt
+				ON pt.id_pastoral = p.id_pastoral
+			ORDER BY p.nome_completo ASC 
+			LIMIT 10 
+			OFFSET ((${pagina} - 1) * 10);
+			`;
+		
+		return await db.buscar(query);
+		
+	} catch (e) {
+		throw new Error(e);
+	}
+}

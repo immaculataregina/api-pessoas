@@ -13,4 +13,6 @@ router.post('/atualizar-foto/:idPessoa', controller.atualizarFoto)
 
 router.get('/dados-modulos/:idPessoa', controller.buscarDadosModulos)
 
+router.get('/buscar-pessoas-listagem', controller.buscarPessoasListagem)
+
 module.exports = router;
