@@ -1,11 +1,11 @@
 'use strict';
 
 const indexRouter = require('./routers/index.router');
-const pessoasRouter = require('./routers/pessoas.router');
+const dizimoRouter = require('./routers/dizimo.router');
 const app = require('./init.app');
 
 // Router
 app.use('/', indexRouter);
-app.use('/pessoas', pessoasRouter);
+app.use('/dizimo', dizimoRouter);
 
 module.exports = app;
