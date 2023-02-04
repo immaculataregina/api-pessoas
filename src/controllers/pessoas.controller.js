@@ -17,6 +17,7 @@ exports.cadastrarPessoa = async (req, res) => {
     const dtNascimento = req.body.dados.dtNascimento
     const cpf = await formatCPF(req.body.dados.cpf)
     const idEstadoCivil = req.body.dados.idEstadoCivil
+    const filhos = req.body.dados.filhos
     const idSexo = req.body.dados.idSexo
     const idProfissao = req.body.dados.idProfissao
     const idGrauInstrucao = req.body.dados.idGrauInstrucao
@@ -98,6 +99,7 @@ exports.cadastrarPessoa = async (req, res) => {
                 dtNascimento,
                 cpf,
                 idEstadoCivil,
+                filhos,
                 idSexo,
                 idProfissao,
                 idGrauInstrucao,
