@@ -15,4 +15,6 @@ router.get('/dados-modulos/:idPessoa', controller.buscarDadosModulos)
 
 router.get('/buscar-pessoas-listagem', controller.buscarPessoasListagem)
 
+router.get('/buscar-pessoa-detalhe/:idPessoa', controller.buscarPessoaDetalhe)
+
 module.exports = router;

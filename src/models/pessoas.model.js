@@ -156,3 +156,47 @@ exports.buscarPessoasListagem = async (schema, pagina) => {
 		throw new Error(e);
 	}
 }
+
+exports.buscarPessoaDetalhe = async (schema, idPessoa) => {
+	try {
+
+		const query =
+			`
+			SELECT 
+			EXTRACT(YEAR FROM AGE(CURRENT_DATE, p.dt_nascimento)) AS idade,
+			p.dt_nascimento,
+			sx.descricao AS sexo,
+			ec.descricao AS estado_civil,
+			p.filhos,
+			pf.descricao AS profissao,
+			gi.descricao AS grau_instrucao,
+			f.descricao AS formacao,
+			p.celular,
+			p.email,
+			pp.descricao AS perfil,
+			'TO-DO' AS dizimista,
+			'TO-DO' AS valor_mensal_doado
+			FROM ${schema}.pessoas p
+			LEFT JOIN sexo sx
+				ON sx.id_sexo = p.id_sexo
+			LEFT JOIN estado_civil ec
+				ON ec.id_estado_civil = p.id_estado_civil
+			LEFT JOIN profissoes pf
+				ON pf.id_profissao = p.id_profissao
+			LEFT JOIN pastorais pt
+				ON pt.id_pastoral = p.id_pastoral
+			LEFT JOIN grau_instrucao gi
+				ON gi.id_grau_instrucao = p.id_grau_instrucao
+			LEFT JOIN formacoes f
+				ON f.id_formacao = p.id_formacao
+			LEFT JOIN perfil_pessoa pp
+				ON pp.id_perfil_pessoa = p.id_perfil_pessoa
+			WHERE id_pessoa = ${idPessoa}
+			`;
+		
+		return await db.buscar(query);
+		
+	} catch (e) {
+		throw new Error(e);
+	}
+}
