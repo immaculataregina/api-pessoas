@@ -26,7 +26,7 @@ exports.cadastrarPessoa = async (req, res) => {
     // Endereço
     const cep = req.body.endereco.cep
     const logradouro = req.body.endereco.logradouro
-    const idCidade = req.body.endereco.idCidade
+    const ibge = req.body.endereco.ibge
     const numero = req.body.endereco.numero
     const complemento = req.body.endereco.complemento
     const bairro = req.body.endereco.bairro
@@ -71,7 +71,7 @@ exports.cadastrarPessoa = async (req, res) => {
         const bodyEndereco = {
             cep,
             logradouro,
-            idCidade,
+            ibge,
             numero,
             complemento,
             bairro
