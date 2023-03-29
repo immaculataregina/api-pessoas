@@ -26,7 +26,7 @@ exports.cadastrarPessoa = async (req, res) => {
     // Endereço
     const cep = req.body.endereco.cep
     const logradouro = req.body.endereco.logradouro
-    const ibge = req.body.endereco.ibge
+    const ibge = (req.body.endereco.ibge == undefined ? 3547809 : req.body.endereco.ibge)
     const numero = req.body.endereco.numero
     const complemento = req.body.endereco.complemento
     const bairro = req.body.endereco.bairro
@@ -57,12 +57,14 @@ exports.cadastrarPessoa = async (req, res) => {
         }
         
         const retornoAuth = await axios.post(
-            `${process.env.API_AUTENTICACAO}/usuario`,
+            `https://api-auth-develop-373121.rj.r.appspot.com/usuario`,
             bodyAutenticacao,
-        {
-        headers: {
-            'Content-Type': 'application/json',
-        }})
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                }
+            }
+        )
 
         uid = retornoAuth.data.user.uid;
 
@@ -78,7 +80,7 @@ exports.cadastrarPessoa = async (req, res) => {
         }
 
         const endereco = await axios.post(
-            `${process.env.API_ENDERECOS}/enderecos`,
+            `https://api-enderecos-develop-377322.rj.r.appspot.com/enderecos`,
             bodyEndereco,
             {
                 headers: {

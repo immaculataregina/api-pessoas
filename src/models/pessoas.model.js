@@ -40,7 +40,7 @@ exports.cadastrarPessoa = async (obj, schema) => {
 				'${obj.contato.celular}',
 				${obj.contato.whatsapp},
 				'${obj.usuario.uid}',
-				'${obj.usuario.idsFuncionalidades}',
+				'{${obj.usuario.idsFuncionalidades}}',
 				${obj.dados.idEstadoCivil},
 				${obj.dados.filhos},
 				${obj.dados.idSexo},

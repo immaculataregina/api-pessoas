@@ -1,8 +1,8 @@
 require('dotenv').config();
 
 module.exports = {
-    name: process.env.NAME,
-    version: process.env.VERSION,
-    nodeEnv: process.env.NODE_ENV,
-    dbConnectionString: process.env.DB_CONNECTION_STRING,
+    name: 'Api Pessoas',
+    version: '1.0.0',
+    nodeEnv: 'DEVELOP',
+    dbConnectionString: 'postgresql://thlamberti_adm:C0mp@nhi@deJesus@209.126.107.110/thlamberti_immaculata',
 };
